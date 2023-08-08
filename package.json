@@ -20,8 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "ts-node ./node_modules/typeorm/cli",
     "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./orm.config.ts",
-    "typeorm:generate-migration": "npm run typeorm -- -d ./orm.config.ts migration:generate ./migrations/UserDB",
-    "typeorm:create-migration": "npm run typeorm -- migration:create ./migrations/UserDB ",
+    "typeorm:generate-migration": "npm run typeorm -- -d ./orm.config.ts migration:generate ./migrations/MainEntitiesCreated_Finish",
+    "typeorm:create-migration": "npm run typeorm -- migration:create ./migrations/MainEntitiesCreated_Finish ",
     "typeorm:revert-migration": "npm run typeorm -- -d ./orm.config.ts migration:revert"
   },
   "dependencies": {
@@ -32,6 +32,7 @@
     "@nestjs/mongoose": "^10.0.1",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.0",
+    "class-validator": "^0.14.0",
     "dotenv": "^16.3.1",
     "mongoose": "^7.4.1",
     "pg": "^8.11.2",

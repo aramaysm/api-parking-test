@@ -2,7 +2,8 @@ import { DataSource } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
 import { UserEntity } from './src/user/entities/user.entity';
-import { UserDB1691132572320 } from './migrations/1691132572320-UserDB';
+import { EntitiesCreated1691476175729 } from './migrations/1691476175729-EntitiesCreated';
+import { MainEntitiesCreatedFinish1691507340729 } from './migrations/1691507340729-MainEntitiesCreated_Finish';
 
 config();
 
@@ -15,8 +16,8 @@ export const AppDataSource = new DataSource({
   username: configService.get('POSTGRES_USER'),
   password: configService.get('POSTGRES_PASSWORD').toString(),
   database: configService.get('POSTGRES_DB'),
-  entities: [UserEntity],
-  migrations: [UserDB1691132572320],
+  entities: ['src/**/**/**/**/*.entity{.ts,.js}'],
+  migrations: [MainEntitiesCreatedFinish1691507340729],
   synchronize: true,
 });
 

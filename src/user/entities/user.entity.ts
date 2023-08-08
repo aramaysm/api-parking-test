@@ -1,6 +1,16 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { CustomerEntity } from '../../customer/entities/customer.entity';
+import { RoleEntity } from '../../role/entities/role.entity';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinTable,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
-@Entity('tb_user')
+@Entity('tb_users')
 export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
   public id: number;
@@ -20,4 +30,12 @@ export class UserEntity extends BaseEntity {
 
   @Column({ type: 'varchar', default: 'Activo' })
   public status: string;
+
+  @ManyToOne((type) => RoleEntity, (role) => role.users)
+  @JoinTable()
+  public role: RoleEntity;
+
+  @OneToMany((type) => CustomerEntity, (customer) => customer.user)
+  @JoinTable()
+  customers: CustomerEntity[];
 }
