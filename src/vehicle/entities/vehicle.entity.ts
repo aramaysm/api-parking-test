@@ -31,6 +31,9 @@ export class VehicleEntity extends BaseEntity {
   @JoinTable()
   public owner: CustomerEntity;
 
+  @Column({ type: 'varchar', default: 'Activo' })
+  public status: string;
+
   @OneToMany((type) => ReservationEntity, (reservation) => reservation.vehicle)
   @JoinTable()
   reservations: ReservationEntity[];

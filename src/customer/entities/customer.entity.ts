@@ -27,6 +27,9 @@ export class CustomerEntity extends BaseEntity {
   @JoinTable()
   public user: UserEntity;
 
+  @Column({ type: 'varchar', default: 'Activo' })
+  public status: string;
+
   @OneToMany((type) => VehicleEntity, (vehicle) => vehicle.owner)
   @JoinTable()
   vehicles: VehicleEntity[];

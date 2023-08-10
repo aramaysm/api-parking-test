@@ -17,8 +17,8 @@ export class ParkingSlotEntity extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
   public id: number;
 
-  @Column({ type: 'int', nullable: false, unique: true })
-  public slot_number: number;
+  @Column({ type: 'varchar', nullable: false, unique: true })
+  public slot_code: string;
 
   @Column({ type: 'bool', default: false })
   public is_slot_available: boolean;
@@ -33,6 +33,9 @@ export class ParkingSlotEntity extends BaseEntity {
   @ManyToOne((type) => BlockEntity, (block) => block.parking_slots)
   @JoinTable()
   public block: BlockEntity;
+
+  @Column({ type: 'varchar', default: 'Activo' })
+  public status: string;
 
   @OneToMany(
     (type) => ReservationEntity,

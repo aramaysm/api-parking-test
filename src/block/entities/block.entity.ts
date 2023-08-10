@@ -28,6 +28,9 @@ export class BlockEntity extends BaseEntity {
   @JoinTable()
   parking_slots: ParkingSlotEntity[];
 
+  @Column({ type: 'varchar', default: 'Activo' })
+  public status: string;
+
   @Column({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',

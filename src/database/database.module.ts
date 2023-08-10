@@ -1,6 +1,10 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { config } from 'dotenv';
+import { join } from 'path';
+
+config();
 
 @Module({
   imports: [
@@ -14,12 +18,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
-        entities: [],
+        entities: [join(__dirname, '**', '*.entity.{ts,js}')],
         autoLoadEntities: true,
       }),
     }),
   ],
 })
-class DatabaseModule {}
-
-export default DatabaseModule;
+export class DatabaseModule {}

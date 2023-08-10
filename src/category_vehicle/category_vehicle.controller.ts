@@ -1,11 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Put,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { CategoryVehicleService } from './category_vehicle.service';
 import { CreateCategoryVehicleDto } from './dto/create-category_vehicle.dto';
 import { UpdateCategoryVehicleDto } from './dto/update-category_vehicle.dto';
 
 @Controller('category-vehicle')
 export class CategoryVehicleController {
-  constructor(private readonly categoryVehicleService: CategoryVehicleService) {}
+  constructor(
+    private readonly categoryVehicleService: CategoryVehicleService,
+  ) {}
 
   @Post()
   create(@Body() createCategoryVehicleDto: CreateCategoryVehicleDto) {
@@ -22,8 +32,11 @@ export class CategoryVehicleController {
     return this.categoryVehicleService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCategoryVehicleDto: UpdateCategoryVehicleDto) {
+  @Put(':id')
+  update(
+    @Param('id') id: string,
+    @Body() updateCategoryVehicleDto: UpdateCategoryVehicleDto,
+  ) {
     return this.categoryVehicleService.update(+id, updateCategoryVehicleDto);
   }
 

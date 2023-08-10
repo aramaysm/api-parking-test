@@ -8,7 +8,6 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm';
-import { UserEntity } from '../../user/entities/user.entity';
 import { ParkingSlotEntity } from '../../parking_slot/entities/parking_slot.entity';
 import { VehicleEntity } from '../../vehicle/entities/vehicle.entity';
 

@@ -1,0 +1,54 @@
+export enum STATUS_USERS {
+  CREATED = 100,
+  UPDATED = 101,
+  LOAD = 102,
+  DELETED = 103,
+}
+
+export enum STATUS_VEHICLE_CATEGORIES {
+  CREATED = 200,
+  UPDATED = 201,
+  LOAD = 202,
+  DELETED = 203,
+}
+
+export enum STATUS_ROLES {
+  CREATED = 300,
+  UPDATED = 301,
+  LOAD = 302,
+  DELETED = 303,
+}
+
+export enum STATUS_VEHICLES {
+  CREATED = 400,
+  UPDATED = 401,
+  LOAD = 402,
+  DELETED = 403,
+}
+
+export enum STATUS_PARKING_SLOT {
+  CREATED = 500,
+  UPDATED = 501,
+  LOAD = 502,
+  DELETED = 503,
+}
+
+export enum STATUS_BLOCK {
+  CREATED = 600,
+  UPDATED = 601,
+  LOAD = 602,
+  DELETED = 603,
+}
+export enum STATUS_CUSTOMER {
+  CREATED = 700,
+  UPDATED = 701,
+  LOAD = 702,
+  DELETED = 703,
+}
+
+export enum STATUS_RESERVATION {
+  CREATED = 800,
+  UPDATED = 801,
+  LOAD = 802,
+  DELETED = 803,
+}

@@ -1,9 +1,8 @@
 import { DataSource } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
-import { UserEntity } from './src/user/entities/user.entity';
-import { EntitiesCreated1691476175729 } from './migrations/1691476175729-EntitiesCreated';
-import { MainEntitiesCreatedFinish1691507340729 } from './migrations/1691507340729-MainEntitiesCreated_Finish';
+import { MainEntitiesCreated1691519430245 } from './migrations/1691519430245-MainEntitiesCreated';
+import { join } from 'path';
 
 config();
 
@@ -13,11 +12,11 @@ export const AppDataSource = new DataSource({
   type: 'postgres',
   host: configService.get('POSTGRES_HOST').toString(),
   port: configService.get('POSTGRES_PORT'),
-  username: configService.get('POSTGRES_USER'),
+  username: configService.get('POSTGRES_USER').toString(),
   password: configService.get('POSTGRES_PASSWORD').toString(),
-  database: configService.get('POSTGRES_DB'),
-  entities: ['src/**/**/**/**/*.entity{.ts,.js}'],
-  migrations: [MainEntitiesCreatedFinish1691507340729],
+  database: configService.get('POSTGRES_DB').toString(),
+  entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+  migrations: [MainEntitiesCreated1691519430245],
   synchronize: true,
 });
 

@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Put,
+} from '@nestjs/common';
 import { ParkingSlotService } from './parking_slot.service';
 import { CreateParkingSlotDto } from './dto/create-parking_slot.dto';
 import { UpdateParkingSlotDto } from './dto/update-parking_slot.dto';
@@ -17,14 +26,31 @@ export class ParkingSlotController {
     return this.parkingSlotService.findAll();
   }
 
+  @Get('/availables')
+  findAllAvailables() {
+    return this.parkingSlotService.findAllAvailables();
+  }
+  @Get('/availables_by_block/:id')
+  findAllAvailablesByBlock(@Param('id') id: string) {
+    return this.parkingSlotService.findAllAvailablesByBlock(+id);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.parkingSlotService.findOne(+id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateParkingSlotDto: UpdateParkingSlotDto) {
+  @Put(':id')
+  update(
+    @Param('id') id: string,
+    @Body() updateParkingSlotDto: UpdateParkingSlotDto,
+  ) {
     return this.parkingSlotService.update(+id, updateParkingSlotDto);
+  }
+
+  @Put('change_availability/:id')
+  changeAvailabity(@Param('id') id: string) {
+    return this.parkingSlotService.changeAvailability(+id);
   }
 
   @Delete(':id')

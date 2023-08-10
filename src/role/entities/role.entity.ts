@@ -21,6 +21,9 @@ export class RoleEntity extends BaseEntity {
   @Column({ type: 'varchar', length: 150, nullable: false })
   description: string;
 
+  @Column({ type: 'bool', default: false })
+  public is_active: boolean;
+
   @OneToMany((type) => UserEntity, (user) => user.role)
   @JoinTable()
   users: UserEntity[];
