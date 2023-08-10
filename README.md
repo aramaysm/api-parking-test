@@ -5,7 +5,7 @@
 
 * Clone the Repository using
 ```
-git clone 
+git clone https://github.com/aramaysm/api-parking-test.git
 ```
 * You need to download nodejs for running code on your local machine [Node](https://nodejs.org/en/).
 
