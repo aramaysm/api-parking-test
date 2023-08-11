@@ -1,0 +1,859 @@
+{
+	"info": {
+		"_postman_id": "2c4ff249-ed41-4838-ba42-953db86c16f2",
+		"name": "Parking-Test-Guajiritos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Get_All",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "43399410-654e-4117-a1af-227983d9513e",
+								"exec": [
+									"\r",
+									"\r",
+									"var dateNow = new Date();  \r",
+									"pm.environment.set('currentDate', dateNow.toISOString());\r",
+									"var twoWeeksFutureDate = new Date(dateNow.setDate(dateNow.getDate() -1)).toISOString();\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"past-date\", twoWeeksFutureDate);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":3,\n\t\"vehicle\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}reservation",
+							"host": [
+								"{{url}}reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "43399410-654e-4117-a1af-227983d9513e",
+								"exec": [
+									"\r",
+									"\r",
+									"var dateNow = new Date();  \r",
+									"pm.environment.set('currentDate', dateNow.toISOString());\r",
+									"var twoWeeksFutureDate = new Date(dateNow.setDate(dateNow.getDate() -1)).toISOString();\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"past-date\", twoWeeksFutureDate);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":3,\n\t\"vehicle\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}reservation",
+							"host": [
+								"{{url}}reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "43399410-654e-4117-a1af-227983d9513e",
+								"exec": [
+									"\r",
+									"\r",
+									"var dateNow = new Date();  \r",
+									"pm.environment.set('currentDate', dateNow.toISOString());\r",
+									"var twoWeeksFutureDate = new Date(dateNow.setDate(dateNow.getDate() -1)).toISOString();\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"past-date\", twoWeeksFutureDate);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":4,\n\t\"vehicle\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}reservation",
+							"host": [
+								"{{url}}reservation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Confirmed",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "43399410-654e-4117-a1af-227983d9513e",
+								"exec": [
+									"\r",
+									"\r",
+									"var dateNow = new Date();  \r",
+									"pm.environment.set('currentDate', dateNow.toISOString());\r",
+									"var twoWeeksFutureDate = new Date(dateNow.setDate(dateNow.getDate() -1)).toISOString();\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"past-date\", twoWeeksFutureDate);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":4,\n\t\"vehicle\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}reservation/confirmed",
+							"host": [
+								"{{url}}reservation"
+							],
+							"path": [
+								"confirmed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Cancelled",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "43399410-654e-4117-a1af-227983d9513e",
+								"exec": [
+									"\r",
+									"\r",
+									"var dateNow = new Date();  \r",
+									"pm.environment.set('currentDate', dateNow.toISOString());\r",
+									"var twoWeeksFutureDate = new Date(dateNow.setDate(dateNow.getDate() -1)).toISOString();\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"past-date\", twoWeeksFutureDate);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":4,\n\t\"vehicle\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}reservation/cancelled",
+							"host": [
+								"{{url}}reservation"
+							],
+							"path": [
+								"cancelled"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_Pending",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "43399410-654e-4117-a1af-227983d9513e",
+								"exec": [
+									"\r",
+									"\r",
+									"var dateNow = new Date();  \r",
+									"pm.environment.set('currentDate', dateNow.toISOString());\r",
+									"var twoWeeksFutureDate = new Date(dateNow.setDate(dateNow.getDate() -1)).toISOString();\r",
+									"\r",
+									"postman.setEnvironmentVariable(\"past-date\", twoWeeksFutureDate);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"duration\":4,\n\t\"vehicle\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}reservation/pending",
+							"host": [
+								"{{url}}reservation"
+							],
+							"path": [
+								"pending"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Parking_Slot",
+			"item": [
+				{
+					"name": "Get_All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"slot_code\":\"A-02\",\n\t\"block\":1,\n\t\"category_vehicle\":1\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}parking-slot",
+							"host": [
+								"{{url}}parking-slot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"slot_code\":\"A-02\",\n\t\"block\":1,\n\t\"category_vehicle\":1\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}parking-slot",
+							"host": [
+								"{{url}}parking-slot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_By_Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"slot_code\":\"A-02\",\n\t\"block\":1,\n\t\"category_vehicle\":1\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}parking-slot/5",
+							"host": [
+								"{{url}}parking-slot"
+							],
+							"path": [
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "Get_All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"plate\":\"P-010235\",\n\t\"description\":\"Este es un Audi A4\",\n\t\"category\": 1,\n\t\"owner\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vehicle",
+							"host": [
+								"{{url}}vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"plate\":\"P-010235\",\n\t\"description\":\"Este es un Audi A4\",\n\t\"category\": 1,\n\t\"owner\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vehicle",
+							"host": [
+								"{{url}}vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_By_Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"plate\":\"P-010236\",\n\t\"description\":\"Este es un Audi A4\",\n\t\"category\": 1,\n\t\"owner\":2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}vehicle/1",
+							"host": [
+								"{{url}}vehicle"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"dni\":\"00050367548\",\n\t\"payment_card\":\"9225959878965874\",\n\t\"user\":2\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}customer",
+							"host": [
+								"{{url}}customer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Category_Vehicle",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"category_name\":\"Carro\",\n\t\"category_description\":\"Carros de 4 asientos, pequennos\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}category-vehicle",
+							"host": [
+								"{{url}}category-vehicle"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"pedrito\",\n\t\"fullname\":\"Pedro Sanchez\",\n\t\"email\":\"vv@gmail.com\",\n\t\"phone\":\"00055878\",\n\t\"role\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}user",
+							"host": [
+								"{{url}}user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"empleado\",\n\t\"description\":\"Este rol se encargara de la gestion del parking\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}role",
+							"host": [
+								"{{url}}role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}role",
+							"host": [
+								"{{url}}role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_By_Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}role/5",
+							"host": [
+								"{{url}}role"
+							],
+							"path": [
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}role/5",
+							"host": [
+								"{{url}}role"
+							],
+							"path": [
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"empleado\",\n\t\"description\":\"Este rol se encargara de la gestion y verificacion del parking\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}role/5",
+							"host": [
+								"{{url}}role"
+							],
+							"path": [
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Block",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code_block\":\"B-01\",\n\t\"total_slots\": 5,\n\t\"slots_available\": 2\n\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}block",
+							"host": [
+								"{{url}}block"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\":\"pedrito\",\n\t\"password\":\"pedrito000558\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}auth/login",
+							"host": [
+								"{{url}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "430c0492-36e3-4676-87db-6823d8e2162b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5a59c555-1e5b-460f-ad6a-cc11efba069e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8d11ddcf-7a97-4eb7-8a07-a5da1df0cdbf",
+			"key": "url",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

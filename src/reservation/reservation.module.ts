@@ -5,6 +5,7 @@ import { VehicleEntity } from '../vehicle/entities/vehicle.entity';
 import { ReservationEntity } from './entities/reservation.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ParkingSlotEntity } from '../parking_slot/entities/parking_slot.entity';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
@@ -13,8 +14,9 @@ import { ParkingSlotEntity } from '../parking_slot/entities/parking_slot.entity'
       ParkingSlotEntity,
       ReservationEntity,
     ]),
+    ConfigModule,
   ],
   controllers: [ReservationController],
-  providers: [ReservationService],
+  providers: [ReservationService, ConfigService],
 })
 export class ReservationModule {}

@@ -39,6 +39,7 @@ export class UserService {
     ).toString();
     newUser.email = createUserDto.email;
     newUser.phone = createUserDto.phone;
+    newUser.fullname = createUserDto.fullname;
 
     const returnUser = await this.repository.save(newUser);
 

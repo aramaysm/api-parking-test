@@ -9,6 +9,7 @@ import {
   OneToMany,
   ManyToMany,
   JoinTable,
+  CreateDateColumn,
 } from 'typeorm';
 import { VehicleEntity } from '../../vehicle/entities/vehicle.entity';
 
@@ -17,11 +18,8 @@ export class ReservationEntity extends BaseEntity {
   @PrimaryGeneratedColumn('increment')
   id: number;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
-  start_timestamp: Date;
-
-  @Column({ type: 'int', nullable: false })
-  duration_in_minutes: string;
+  @Column({ type: 'int', nullable: false, default: 0 })
+  duration_in_minutes: number;
 
   @ManyToOne((type) => ParkingSlotEntity, (slot) => slot.reservations)
   @JoinTable()
@@ -33,12 +31,12 @@ export class ReservationEntity extends BaseEntity {
 
   @Column({
     type: 'varchar',
-    length: 10,
     nullable: false,
+    default: 'Pending',
   })
   status: string;
 
-  @Column({
+  @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',
     name: 'created_at',

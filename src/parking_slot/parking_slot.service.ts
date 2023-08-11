@@ -12,12 +12,18 @@ import { CreateParkingSlotDto } from './dto/create-parking_slot.dto';
 import { UpdateParkingSlotDto } from './dto/update-parking_slot.dto';
 import { ParkingSlotEntity } from './entities/parking_slot.entity';
 import { STATUS_PARKING_SLOT } from 'src/status';
+import { BlockEntity } from 'src/block/entities/block.entity';
+import { CategoryVehicleEntity } from 'src/category_vehicle/entities/category_vehicle.entity';
 
 @Injectable()
 export class ParkingSlotService {
   constructor(
     @InjectRepository(ParkingSlotEntity)
     private repository: Repository<ParkingSlotEntity>,
+    @InjectRepository(BlockEntity)
+    private block_repository: Repository<BlockEntity>,
+    @InjectRepository(CategoryVehicleEntity)
+    private category_repository: Repository<CategoryVehicleEntity>,
     @Inject(ConfigService)
     private config: ConfigService,
   ) {}
@@ -26,8 +32,16 @@ export class ParkingSlotService {
     const slotInBd = await this.repository.findOne({
       where: { slot_code: createParkingSlotDto.slot_code },
     });
+    const blockInBd = this.block_repository.findOne({
+      where: { id: createParkingSlotDto.block.id },
+    });
+    const categoryInBd = this.category_repository.findOne({
+      where: { id: createParkingSlotDto.category_vehicle.id },
+    });
 
     if (slotInBd) throw new ConflictException('Parking slot already exist');
+    if (!blockInBd) throw new NotFoundException('This block not exist');
+    if (!categoryInBd) throw new NotFoundException('This category not exist');
     if (createParkingSlotDto.block.slots_available == 0)
       throw new NotAcceptableException(
         'The assigned block is full, choose another',

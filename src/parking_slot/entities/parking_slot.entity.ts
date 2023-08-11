@@ -20,7 +20,7 @@ export class ParkingSlotEntity extends BaseEntity {
   @Column({ type: 'varchar', nullable: false, unique: true })
   public slot_code: string;
 
-  @Column({ type: 'bool', default: false })
+  @Column({ type: 'bool', default: true })
   public is_slot_available: boolean;
 
   @ManyToOne(

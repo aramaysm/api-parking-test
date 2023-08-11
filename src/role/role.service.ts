@@ -1,4 +1,9 @@
-import { Inject, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ConflictException,
+  Inject,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { RoleDto } from './dto/role.dto';
 import { STATUS_ROLES } from '../status';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -17,6 +22,13 @@ export class RoleService {
   ) {}
 
   async create(createRoleDto: RoleDto) {
+    const roleFounded = await this.repository.findOne({
+      where: { name: createRoleDto.name },
+    });
+    if (roleFounded) {
+      throw new ConflictException('Role already exist');
+    }
+
     const newRole = new RoleEntity();
     newRole.name = createRoleDto.name;
     newRole.description = createRoleDto.description;

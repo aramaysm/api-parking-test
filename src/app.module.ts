@@ -10,6 +10,7 @@ import { ParkingSlotModule } from './parking_slot/parking_slot.module';
 import { BlockModule } from './block/block.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { DatabaseModule } from './database/database.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { DatabaseModule } from './database/database.module';
     BlockModule,
     DatabaseModule,
     ReservationModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

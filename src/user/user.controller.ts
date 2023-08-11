@@ -1,7 +1,17 @@
-import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { UserDto } from './dto/user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { JwtAuthGuard } from 'src/auth/auth.guard';
+import RoleGuard from 'src/role/role.guard';
 
 @Controller('user')
 export class UserController {
@@ -28,8 +38,8 @@ export class UserController {
   }
 
   @Put('/status/:id')
-  //@UseGuards(RoleGuard('super-admin'))
-  //@UseGuards(JwtAuthGuard)
+  @UseGuards(RoleGuard('admin'))
+  @UseGuards(JwtAuthGuard)
   change_status(@Param('id') id: string) {
     return this.userService.changeStatus(+id);
   }
